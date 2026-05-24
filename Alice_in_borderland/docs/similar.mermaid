@@ -1,0 +1,38 @@
+flowchart TD
+    subgraph Input["Input"]
+        A[Book ID]
+    end
+
+    subgraph Data["Data Loading"]
+        B[Download Target Book]
+        C[Download 21 Reference Books]
+        D[Load from Cache if exists]
+    end
+
+    subgraph Process["Processing"]
+        E[Text Cleaning]
+        F[TF-IDF Vectorization<br/>max_features=1000]
+        G[Create Document Matrix]
+    end
+
+    subgraph Compute["Computation"]
+        H[Cosine Similarity<br/>Target vs All]
+        I[Sort by Score<br/>Descending]
+        J[Exclude Self Match]
+    end
+
+    subgraph Output["Output"]
+        K[Top 5 Similar Books<br/>List of Titles]
+    end
+
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K

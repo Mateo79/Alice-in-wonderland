@@ -1,0 +1,27 @@
+flowchart TDflowchart LR
+    Start{Livre en cache ?} -->|Non| Télécharger[Télécharger le livre]
+    
+    Télécharger --> Sauvegarder[Sauvegarder]
+    Sauvegarder --> Couper
+    
+    Couper --> Garder[Garder 5 morceaux<br/>maximum]
+    
+    Garder --> Morceau1[Morceau 1]
+    Garder --> Morceau2[Morceau 2]
+    Garder --> Morceau3[Morceau 3]
+    Garder --> Morceau4[Morceau 4]
+    Garder --> Morceau5[Morceau 5]
+    
+    Morceau1 --> Resumer1[Résumer avec IA]
+    Morceau2 --> Resumer2[Résumer avec IA]
+    Morceau3 --> Resumer3[Résumer avec IA]
+    Morceau4 --> Resumer4[Résumer avec IA]
+    Morceau5 --> Resumer5[Résumer avec IA]
+    
+    Resumer1 --> Assembler{Assembler}
+    Resumer2 --> Assembler
+    Resumer3 --> Assembler
+    Resumer4 --> Assembler
+    Resumer5 --> Assembler
+    
+    Assembler --> Afficher[Afficher le résumé]
